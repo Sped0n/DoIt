@@ -12,7 +12,7 @@ $global-line-height: 1.5rem !default;
 // Color of the background
 $global-background-color: #fff !default;
 $global-background-color-dark: #292a2d !default;
-$global-background-color-black: #000000 !default;
+$global-background-color-black: #0d1219 !default;
 
 // Color of the text
 $global-font-color: #161209 !default;
@@ -65,7 +65,7 @@ $header-height: 3.5rem !default;
 // Color of the header background
 $header-background-color: #f8f8f8 !default;
 $header-background-color-dark: #252627 !default;
-$header-background-color-black: #000000 !default;
+$header-background-color-black: #171c23 !default;
 
 // Font style of the header title
 $header-title-font-family: $global-font-family !default;
@@ -134,11 +134,11 @@ $code-color-black: #E5BF78 !default;
 // Color of the code background
 $code-background-color: #f5f5f5 !default;
 $code-background-color-dark: #272C34 !default;
-$code-background-color-black: #272C34 !default;
+$code-background-color-black: #252525 !default;
 
 $code-info-color: #9c9c9c !default;
 $code-info-color-dark: #b1b0b0 !default;
-$code-info-color-black: #b1b0b0 !default;
+$code-info-color-black: #dedede !default;
 
 // Font size of the code
 $code-font-size: .875rem !default;
@@ -351,7 +351,7 @@ $code-highlight-color-map-dark: (
   /* TextWhitespace */ 'w': #bbbbbb,
 ) !default;
 $code-highlight-color-map-black: (
-  /* Parentheses */ 'p': #a9a9b3,
+  /* Parentheses */ 'p': #d4d4df,
   /* Keyword */ 'k': #d371e3,
   /* KeywordConstant */ 'kc': #d371e3,
   /* KeywordDeclaration */ 'kd': #d371e3,
@@ -372,7 +372,7 @@ $code-highlight-color-map-black: (
   /* NameFunctionMagic */ 'fm': #19b9c4,
   /* NameLabel */ 'nl': #41b0f5,
   /* NameNamespace */ 'nn': #41b0f5,
-  /* NameOther */ 'nx': #a9a9b3,
+  /* NameOther */ 'nx': #d4d4df,
   /* NameProperty */ 'py': #41b0f5,
   /* NameTag */ 'nt': #41b0f5,
   /* NameVariable */ 'nv': #41b0f5,
@@ -405,13 +405,13 @@ $code-highlight-color-map-black: (
   /* LiteralNumberOct */ 'mo': #db985c,
   /* Operator */ 'o': #ecbf6f,
   /* OperatorWord */ 'ow': #d371e3,
-  /* Comment */ 'c': #7e848f,
-  /* CommentHashbang */ 'ch': #7e848f,
-  /* CommentMultiline */ 'cm': #7e848f,
-  /* CommentSingle */ 'c1': #7e848f,
-  /* CommentSpecial */ 'cs': #7e848f,
-  /* CommentPreproc */ 'cp': #7e848f,
-  /* CommentPreprocFile */ 'cpf': #7e848f,
+  /* Comment */ 'c': #787c87,
+  /* CommentHashbang */ 'ch': #787c87,
+  /* CommentMultiline */ 'cm': #787c87,
+  /* CommentSingle */ 'c1': #787c87,
+  /* CommentSpecial */ 'cs': #787c87,
+  /* CommentPreproc */ 'cp': #787c87,
+  /* CommentPreprocFile */ 'cpf': #787c87,
   /* Generic */ 'g': #f16372,
   /* GenericDeleted */ 'gd': #f16372,
   /* GenericEmph */ 'ge': #f16372,
