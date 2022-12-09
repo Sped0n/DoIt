@@ -547,7 +547,6 @@ image = "/images/Apple-Devices-Preview.png"
 # thumbnail URL
 # 缩略图 URL
 thumbnailUrl = "/images/screenshot.png"
-
 # Analytics config
 # 网站分析配置
 [params.analytics]
