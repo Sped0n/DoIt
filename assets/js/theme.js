@@ -110,12 +110,22 @@ function initSwitchTheme () {
   Array.from(document.getElementsByClassName('theme-switch')).forEach(themeSwitch => {
     themeSwitch.addEventListener('click', () => {
       const currentTheme = document.body.getAttribute('theme')
-      if (currentTheme === 'dark') {
-        setColorTheme('black')
-      } else if (currentTheme === 'black') {
-        setColorTheme('light')
+      const themeChangeMode = document.body.getAttribute('themeChangeMode')
+      const defaultDarkTheme = document.body.getAttribute('defaultDarkTheme')
+      if (themeChangeMode === 'dual') {
+        if (currentTheme === defaultDarkTheme) {
+          setColorTheme('light')
+        } else {
+          setColorTheme(defaultDarkTheme)
+        }
       } else {
-        setColorTheme('dark')
+        if (currentTheme === 'dark') {
+          setColorTheme('black')
+        } else if (currentTheme === 'black') {
+          setColorTheme('light')
+        } else {
+          setColorTheme('dark')
+        }
       }
       for (const event of window.switchThemeEventSet) event()
     })
@@ -140,12 +150,17 @@ function initSelectTheme () {
 
     themeSelect.addEventListener('change', () => {
       const theme = themeSelect.value
+      const defaultDarkTheme = document.body.getAttribute('defaultDarkTheme')
       window.localStorage && localStorage.setItem('theme', theme)
       if (theme !== 'auto') {
         setColorTheme(theme)
       } else {
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-          setColorTheme('dark')
+          if (defaultDarkTheme === 'black') {
+            setColorTheme('black')
+          } else {
+            setColorTheme('dark')
+          }
         } else {
           setColorTheme('light')
         }
