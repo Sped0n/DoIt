@@ -1,4 +1,4 @@
-name: Build
+name: Build_hugo_doit
 
 on:
   push:
