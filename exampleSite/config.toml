@@ -24,6 +24,7 @@ enableGitInfo = false
 # whether to use emoji code
 # 是否使用 emoji 代码
 enableEmoji = true
+    
 [params]
 # website title
 # 网站标题
