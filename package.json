@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Sped0n/DoIt.git"
+    "url": "git+https://github.com/HEIGE-PCloud/DoIt.git"
   },
   "keywords": [
     "hugo",
@@ -25,8 +25,7 @@
   },
   "homepage": "https://github.com/HEIGE-PCloud/DoIt#readme",
   "dependencies": {
-    "@sliphua/pjax": "^2.4.0",
-    "@waline/client": "^2.14.4",
+    "@waline/client": "^2.14.7",
     "aplayer": "^1.10.1",
     "atomic-algolia": "^0.3.19",
     "autocomplete.js": "^0.38.1",
@@ -34,20 +33,18 @@
     "cookieconsent": "^3.1.1",
     "echarts": "^5.4.1",
     "katex": "^0.16.4",
-    "lazysizes": "^5.3.2",
     "mermaid": "^9.3.0",
     "node-fetch": "^3.3.0",
     "tablesort": "^5.3.0",
-    "topbar": "^1.0.1",
     "twemoji": "^14.0.2",
     "twikoo": "^1.6.8",
     "valine": "^1.5.1"
   },
   "devDependencies": {
-    "eslint": "^8.30.0",
+    "eslint": "^8.32.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-n": "^15.6.0",
+    "eslint-plugin-n": "^15.6.1",
     "eslint-plugin-promise": "^6.1.1"
   }
 }
