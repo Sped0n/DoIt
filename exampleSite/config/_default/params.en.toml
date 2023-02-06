@@ -1,15 +1,15 @@
 # site description
 # 网站描述
-description = "The official documentation for the Hugo DoIt theme"
+description = "spedon's blog"
 # site keywords
 # 网站关键词
-keywords = ["Theme", "Hugo"]
+keywords = ["blog", "tech", "blog"]
 # App icon config
 # 应用图标配置
 [app]
   # optional site title override for the app when added to an iOS home screen or Android launcher
   # 当添加到 iOS 主屏幕或者 Android 启动器时的标题, 覆盖默认标题
-  title = "DoIt"
+  title = "Exile"
   # whether to omit favicon resource links
   # 是否隐藏网站图标资源链接
   noFavicon = false
@@ -28,7 +28,7 @@ keywords = ["Theme", "Hugo"]
   enable = true
   # type of search engine ("algolia", "fuse")
   # 搜索引擎的类型 ("algolia", "fuse")
-  type = "algolia"
+  type = "fuse"
   # max index length of the chunked content
   # 文章内容最长索引长度
   contentLength = 4000
@@ -54,11 +54,16 @@ keywords = ["Theme", "Hugo"]
   [search.fuse]
     # https://fusejs.io/api/options.html
     isCaseSensitive = false
+    shouldSort = true
+    includeMatches = true
+    tokenize = true
+    matchAllTokens = true
     minMatchCharLength = 2
     findAllMatches = false
     location = 0
-    threshold = 0.1
+    threshold = 0.2
     distance = 100
+    maxPatternLength = 64
     ignoreLocation = true
     useExtendedSearch = false
     ignoreFieldNorm = false
@@ -80,10 +85,10 @@ keywords = ["Theme", "Hugo"]
     avatarURL = "/images/avatar.webp"
     # title shown in home page (HTML format is supported)
     # 主页显示的网站标题 (支持 HTML 格式)
-    title = ""
+    title = "「去你媽的花海」"
     # subtitle shown in home page
     # 主页显示的网站副标题
-    subtitle = "A Clean, Elegant but Advanced Hugo Theme"
+    subtitle = ""
     # whether to use typeit animation for subtitle
     # 是否为副标题显示打字机动画
     typeit = true
@@ -103,82 +108,11 @@ keywords = ["Theme", "Hugo"]
 # Social config in home page
 # 主页的社交信息设置
 [social]
-  Angellist = ""
-  Bandcamp = ""
-  Behance = ""
-  Bilibili = ""
-  Bitbucket = ""
-  BuyMeACoffee = ""
-  Codepen = ""
-  Deviantart = ""
-  Devto = ""
-  Douban = ""
-  Dribbble = ""
-  Email = "xxxx@xxxx.com"
-  Facebook = "xxxx"
-  Fivehundredpx = ""
-  Flickr = ""
-  Foursquare = ""
-  FreeCodeCamp = ""
-  Gitea = ""
-  GitHub = "xxxx"
-  Gitlab = ""
-  Goodreads = ""
-  Googlescholar = ""
-  Hackernews = ""
-  Instagram = ""
-  Jsfiddle = ""
-  Keybase = ""
-  Kickstarter = ""
-  Ko-Fi = "xxx"
-  Lastfm = ""
-  Liberapay = "xxx"
-  Linkedin = ""
-  Linktree = ""
-  Matrix = ""
-  Medium = ""
-  Mix = ""
-  Odnoklassniki = ""
-  ORCID = ""
-  Patreon = ""
-  Paypal = ""
-  Pinterest = ""
-  QQ = ""
-  QQGroup = ""
-  Quora = ""
-  Reddit = ""
-  Researchgate = ""
+  GitHub = "Sped0n"
+  Strava = "27884896"
+  Email = "forever.super_0f@icloud.com"
   RSS = true
-  Skype = ""
-  Slidershare = ""
-  Snapchat = ""
-  Soundcloud = ""
-  Spotify = ""
-  Stackoverflow = ""
-  Steam = ""
-  Strava = ""
-  Telegram = "xxxx"
-  Thingiverse = ""
-  Tumblr = ""
-  Twitch = ""
-  Twitter = "xxxx"
-  Vine = ""
-  VK = ""
-  Weibo = ""
-  Whatsapp = ""
-  Wordpress = ""
-  Xing = ""
-  XMPP = ""
-  Youtubechannel = ""
-  Youtubecustom = ""
-  Youtubelegacy = "xxxx"
-  Zhihu = ""
-  [social.Mastodon]
-    id = "@xxxx"
-    prefix = "https://mastodon.technology/"
-  [social.Diaspora]
-    id = "@xxxx"
-    prefix = "https://yyyy/"
+  Inoreader = "Sped0n"
 # Sponsor config
 # 赞助设置
 [sponsor]
