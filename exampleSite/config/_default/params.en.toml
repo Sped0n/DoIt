@@ -110,7 +110,7 @@ keywords = ["blog", "tech", "blog"]
 [social]
   GitHub = "Sped0n"
   Strava = "27884896"
-  Email = "forever.super_0f@icloud.com"
+  photography = true
   RSS = true
   Inoreader = "Sped0n"
 # Sponsor config

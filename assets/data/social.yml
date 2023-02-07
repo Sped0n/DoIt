@@ -579,3 +579,11 @@ inoreader:
   Title: Inoreader
   Icon:
     Class: fas fa-book-open fa-fw
+
+photography:
+  weight: 74
+  Url: https://arc.sped0nwen.com
+  Title: photography
+  Newtab: true
+  Icon:
+    Class: fas fa-camera fa-fw
