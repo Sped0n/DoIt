@@ -12,14 +12,6 @@
         {{- end -}}
     {{- end -}}
 {{- else -}}
-    {{- with $remoteResource := resources.GetRemote .Path -}}
-        {{- with .Err -}}
-            {{- erroridf "resource-get-remote-error" "%#v" . -}}
-        {{ else }}
-            {{- if eq $remoteResource.ResourceType "image" -}}
-                {{- $resource = $remoteResource -}}
-            {{- end -}}
-        {{- end -}}
-    {{- end -}}
+    {{- $resource = partial "function/getRemoteImage.html" .Path -}}
 {{- end -}}
 {{- return $resource -}}
