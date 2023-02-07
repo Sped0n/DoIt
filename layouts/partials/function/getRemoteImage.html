@@ -9,7 +9,7 @@
 {{- if $suffixValid -}}
     {{- with $remoteResource := resources.GetRemote . -}}
         {{- with .Err -}}
-            {{- warnf "resource-get-remote-error" "%#v" . -}}
+            {{- warnf "%s" . -}}
         {{ else }}
             {{- if eq $remoteResource.ResourceType "image" -}}
                 {{- $resource = $remoteResource -}}
