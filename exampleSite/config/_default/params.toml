@@ -13,7 +13,7 @@ defaultDarktheme = "black"
 gitRepo = "https://github.com/Sped0n/DoIt"
 # which hash function used for SRI, when empty, no SRI is used ("sha256", "sha384", "sha512", "md5")
 # 哪种哈希函数用来 SRI, 为空时表示不使用 SRI ("sha256", "sha384", "sha512", "md5")
-fingerprint = "md5"
+fingerprint = ""
 # date format
 # 日期格式
 dateFormat = "2006-01-02"
@@ -472,8 +472,8 @@ bundle = false
     # Publisher info
     # 出版者信息
     [page.seo.publisher]
-      name = "xxxx"
-      logoUrl = "/images/avatar.webp"
+      name = "spedon"
+      logoUrl = "/avatar.webp"
   # Related content config
   # 相关文章推荐配置
   [page.related]
