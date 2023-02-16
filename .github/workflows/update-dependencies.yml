@@ -16,5 +16,4 @@ jobs:
       
       - uses: Hugo-DoIt/update-dependencies@v0.3.1
         with:
-          reviewers: |
-            Sped0n
+          reviewers: Sped0n
