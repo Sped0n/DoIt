@@ -33,7 +33,7 @@
     "cookieconsent": "^3.1.1",
     "echarts": "^5.4.1",
     "katex": "^0.16.4",
-    "mermaid": "^10.0.0",
+    "mermaid": "^9.4.0",
     "node-fetch": "^3.3.0",
     "tablesort": "^5.3.0",
     "twemoji": "^14.0.2",
@@ -41,7 +41,7 @@
     "valine": "^1.5.1"
   },
   "devDependencies": {
-    "eslint": "^8.34.0",
+    "eslint": "^8.33.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-n": "^15.6.1",
