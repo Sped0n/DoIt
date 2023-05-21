@@ -217,6 +217,8 @@ hugo
   images = ["/logo.png"]
   # {{< version 0.2.11 >}} 开启 PWA 支持
   enablePWA = false
+  # [试验性功能] 缓存图床图片，详情请见：https://github.com/HEIGE-PCloud/DoIt/pull/860#issue-1574342372
+  cacheRemoteImages = false
   # {{< version 0.2.14 >}} 版权信息
   license = '<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
   # {{< version 0.2.0 >}} 应用图标配置
@@ -296,7 +298,7 @@ hugo
     hugo = true
     # {{< version 0.2.14 >}} 托管服务信息 (支持 HTML 格式)
     # <a title="Github Pages" href="https://docs.github.com/en/pages/" target="_blank" rel="noopener noreffer">GitHub Pages</a>
-    hostedOn = '' 
+    hostedOn = ''
     # {{< version 0.2.0 >}} 是否显示版权信息
     copyright = true
     # {{< version 0.2.0 >}} 是否显示作者
@@ -345,6 +347,8 @@ hugo
       # 将你的头像文件放置于 static 或者 assets 目录下
       # 文件路径是相对于 static 或者 assets 目录的
       avatarURL = "/images/avatar.webp"
+      # 头像的链接指向的 URL
+      avatarLinkURL = ""
       # {{< version 0.2.7 changed >}} 主页显示的网站标题 (支持 HTML 格式)
       title = ""
       # 主页显示的网站副标题
@@ -469,8 +473,6 @@ hugo
     # "https://github.com/user/repo/issues/new?title=[bug]%20{title}&body=|Field|Value|%0A|-|-|%0A|Title|{title}|%0A|Url|{url}|%0A|Filename|https://github.com/user/repo/blob/main/{path}|"
     # {{< version 0.2.4 >}} 是否在 RSS 中显示全文内容
     rssFullText = false
-    # {{< version 0.2.11 >}} 页面样式 ("normal", "wide")
-    pageStyle = "normal"
     # {{< version 0.2.13 >}} 是否在文章开头显示系列导航
     seriesNavigation = true
     # {{< version 0.2.13 >}} 过时文章提示
@@ -557,6 +559,7 @@ hugo
       Skype = false
       Trello = false
       Mix = false
+      Mastodon = false
     # {{< version 0.2.0 changed >}} 评论系统设置
     [params.page.comment]
       enable = true
@@ -647,6 +650,7 @@ hugo
         envId = ""
         region = ""
         path = ""
+        cloudbase = true # boolean : true / false. # 是否部署在腾讯云 CloudBase
         visitor = true
         commentCount = true
       # {{< version 0.2.12 >}} {{< link "https://vssue.js.org/" "Vssue" >}} 评论系统设置
@@ -722,7 +726,7 @@ hugo
     enable = false
     bio = "如果你觉得这篇文章对你有所帮助，欢迎赞赏~"
     link = "https://www.buymeacoffee.com" # 你的赞赏页面的地址
-    custom = "" # 自定义 HTML 
+    custom = "" # 自定义 HTML
 
   # {{< version 0.2.5 >}} TypeIt 配置
   [params.typeit]
@@ -915,6 +919,8 @@ series = "series"
   gravatarEmail = ""
   # 主页显示头像的 URL
   avatarURL = "/images/avatar.webp"
+  # 头像的链接指向的 URL
+  avatarLinkURL = ""
 ````
 
 你可以在 [Gravatar](https://cn.gravatar.com) 注册并设置自己的头像, 网站会通过`gravatarEmail`中填写的邮箱自动获取并设置你的头像.
@@ -1018,12 +1024,12 @@ $code-font-family: Fira Mono, Source Code Pro, Menlo, Consolas, Monaco, monospac
 
 {{< version 0.2.10 changed >}}
 
-| 语言         | Hugo 代码 | HTML `lang` 属性 |           主题文档            | 
+| 语言         | Hugo 代码 | HTML `lang` 属性 |           主题文档            |
 | :----------- | :-------: | :--------------: | :---------------------------: |
 | 英语         |   `en`    |       `en`       | :(far fa-check-square fa-fw): |
 | 简体中文     |  `zh-cn`  |     `zh-CN`      | :(far fa-check-square fa-fw): |
 | 法语         |   `fr`    |       `fr`       |    :(far fa-square fa-fw):    |
-| 波兰语       |   `pl`    |       `pl`       |    :(far fa-square fa-fw):    | 
+| 波兰语       |   `pl`    |       `pl`       |    :(far fa-square fa-fw):    |
 | 巴西葡萄牙语 |  `pt-br`  |     `pt-BR`      |    :(far fa-square fa-fw):    |
 | 意大利语     |   `it`    |       `it`       |    :(far fa-square fa-fw):    |
 | 西班牙语     |   `es`    |       `es`       |    :(far fa-square fa-fw):    |
@@ -1032,6 +1038,15 @@ $code-font-family: Fira Mono, Source Code Pro, Menlo, Consolas, Monaco, monospac
 | 俄语         |   `ru`    |       `ru`       |    :(far fa-square fa-fw):    |
 | 罗马尼亚语   |   `ro`    |       `ro`       |    :(far fa-square fa-fw):    |
 | 越南语       |   `vi`    |       `vi`       |    :(far fa-square fa-fw):    |
+| Arabic               | `ar`      | `ar`                  | :(far fa-square fa-fw):       |
+| Catalan              | `ca`      | `ca`                  | :(far fa-square fa-fw):       |
+| Hindi                | `hi`      | `hi`                  | :(far fa-square fa-fw):       |
+| Indonesian           | `id`      | `id`                  | :(far fa-square fa-fw):       |
+| Telugu               | `te`      | `te`                  | :(far fa-square fa-fw):       |
+| Thai                 | `th`      | `th`                  | :(far fa-square fa-fw):       |
+| Turkish              | `tr`      | `tr`                  | :(far fa-square fa-fw):       |
+| Ukrainian            | `uk`      | `uk`                  | :(far fa-square fa-fw):       |
+| Traditional Chinese  | `zh-tw`   | `zh-tw`               | :(far fa-square fa-fw):       |
 
 ### 基本配置
 

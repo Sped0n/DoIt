@@ -204,11 +204,11 @@ function initSearch () {
     window._searchMobileOnce = true
     // Turn on the mask when clicking on the search button
     searchInput.addEventListener('focus', () => {
-      loadScript('autocomplete-script', '/lib/autocomplete/autocomplete.min.js')
+      loadScript('autocomplete-script', '/lib/autocomplete/autocomplete.min.js', () => initAutosearch())
       if (window.config?.search?.type === 'algolia') {
-        loadScript('algolia-script', '/lib/algoliasearch/algoliasearch-lite.umd.min.js')
+        loadScript('algolia-script', '/lib/algoliasearch/algoliasearch-lite.umd.min.js', null)
       } else {
-        loadScript('fuse-script', '/lib/fuse/fuse.min.js')
+        loadScript('fuse-script', '/lib/fuse/fuse.min.js', null)
       }
       document.body.classList.add('blur')
       header.classList.add('open')
@@ -240,11 +240,11 @@ function initSearch () {
     window._searchDesktopOnce = true
     // Turn on the mask when clicking on the search button
     searchToggle.addEventListener('click', () => {
-      loadScript('autocomplete-script', '/lib/autocomplete/autocomplete.min.js')
+      loadScript('autocomplete-script', '/lib/autocomplete/autocomplete.min.js', () => initAutosearch())
       if (window.config?.search?.type === 'algolia') {
-        loadScript('algolia-script', '/lib/algoliasearch/algoliasearch-lite.umd.min.js')
+        loadScript('algolia-script', '/lib/algoliasearch/algoliasearch-lite.umd.min.js', null)
       } else {
-        loadScript('fuse-script', '/lib/fuse/fuse.min.js')
+        loadScript('fuse-script', '/lib/fuse/fuse.min.js', null)
       }
       document.body.classList.add('blur')
       header.classList.add('open')
@@ -312,9 +312,9 @@ function initSearch () {
               hits.forEach(({ uri, date, _highlightResult: { title }, _snippetResult: { content } }) => {
                 if (results[uri] && results[uri].context.length > content.value) return
                 results[uri] = {
-                  uri: uri,
+                  uri,
                   title: title.value,
-                  date: date,
+                  date,
                   context: content.value
                 }
               })
@@ -351,7 +351,7 @@ function initSearch () {
               })
               results[item.uri] = {
                 uri: item.uri,
-                title: title,
+                title,
                 date: item.date,
                 context: content
               }
@@ -363,15 +363,15 @@ function initSearch () {
               .then(response => response.json())
               .then(data => {
                 const options = {
-                  isCaseSensitive: isCaseSensitive,
-                  findAllMatches: findAllMatches,
-                  minMatchCharLength: minMatchCharLength,
-                  location: location,
-                  threshold: threshold,
-                  distance: distance,
-                  ignoreLocation: ignoreLocation,
-                  useExtendedSearch: useExtendedSearch,
-                  ignoreFieldNorm: ignoreFieldNorm,
+                  isCaseSensitive,
+                  findAllMatches,
+                  minMatchCharLength,
+                  location,
+                  threshold,
+                  distance,
+                  ignoreLocation,
+                  useExtendedSearch,
+                  ignoreFieldNorm,
                   includeScore: false,
                   shouldSort: true,
                   includeMatches: true,
@@ -414,17 +414,16 @@ function initSearch () {
     if (isMobile) window._searchMobile = autosearch
     else window._searchDesktop = autosearch
   }
-  function loadScript(id, url) {
+  function loadScript (id, url, onload) {
     if (document.querySelector(`#${id}`) === null) {
       const head = document.querySelector('head')
-      const autocomplete = document.createElement('script');
-      autocomplete.setAttribute('src', url)
-      autocomplete.setAttribute('id', id)
-      autocomplete.onload = () => initAutosearch()
-      head.appendChild(autocomplete)
+      const script = document.createElement('script')
+      script.setAttribute('src', url)
+      script.setAttribute('id', id)
+      script.onload = onload
+      head.appendChild(script)
     }
   }
-  
 }
 
 function initDetails () {
@@ -618,7 +617,7 @@ function initMapbox () {
       const mapbox = new mapboxgl.Map({
         container: $mapbox,
         center: [lng, lat],
-        zoom: zoom,
+        zoom,
         minZoom: 0.2,
         style: window.isDark ? darkStyle : lightStyle,
         attributionControl: false
@@ -671,10 +670,10 @@ function initTypeit () {
         if (!document.getElementById(id).hasAttribute('data-typeit-id')) {
           const instance = new TypeIt(`#${id}`, {
             strings: window.config.data[id],
-            speed: speed,
+            speed,
             lifeLike: true,
-            cursorSpeed: cursorSpeed,
-            cursorChar: cursorChar,
+            cursorSpeed,
+            cursorChar,
             waitUntilVisible: true,
             afterComplete: () => {
               if (i === group.length - 1) {
@@ -791,7 +790,6 @@ function init () {
   window.oldScrollTop = window.newScrollTop
   window.scrollEventSet = new Set()
   window.resizeEventSet = new Set()
-  window.switchThemeEventSet = new Set()
   window.clickMaskEventSet = new Set()
   if (window.objectFitImages) objectFitImages()
   initSVGIcon()

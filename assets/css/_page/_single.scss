@@ -262,7 +262,7 @@
           }
         }
 
-        td:nth-child(2) {
+        td:nth-child(2).lntd {
           max-width: 0;
           overflow: auto;
           text-overflow: ellipsis;
@@ -395,6 +395,7 @@
 
     .headerLink {
       scroll-margin-top: 3.5rem;
+      line-height: 1.2;
     }
 
     sup {
@@ -410,6 +411,7 @@
     @import "../_partial/_single/bilibili";
     @import "../_partial/_single/friend";
     @import "../_partial/_single/showcase";
+    @import "../_partial/_single/mermaid";
 
     hr {
       margin: 2rem 0;
